@@ -1,0 +1,19 @@
+{
+  "name": "cloudflare-search-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 migrations apply DB --local",
+    "db:remote": "wrangler d1 migrations apply DB --remote",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "hono": "^4.8.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.20.0"
+  }
+}

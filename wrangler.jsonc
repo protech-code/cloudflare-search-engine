@@ -1,0 +1,47 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-search-engine",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-17",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cloudflare-search-engine",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "CRAWL_QUEUE",
+        "queue": "cloudflare-search-crawl"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "cloudflare-search-crawl",
+        "max_batch_size": 1,
+        "max_batch_timeout": 1,
+        "max_retries": 5,
+        "dead_letter_queue": "cloudflare-search-crawl-dlq",
+        "max_concurrency": 1
+      }
+    ]
+  },
+  "triggers": {
+    "crons": ["17 3 * * *"]
+  },
+  "vars": {
+    "SITE_NAME": "MySearch",
+    "BASE_URL": "http://localhost:8787",
+    "BOT_UA": "MySearchBot/1.0 (+https://example.com/bot)",
+    "CRAWL_DELAY_MS": "1000",
+    "VERIFIED_MAX_PAGES": "200"
+  }
+}

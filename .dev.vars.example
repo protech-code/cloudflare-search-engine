@@ -1,0 +1,4 @@
+SESSION_SECRET=replace-with-a-long-random-secret
+BOOTSTRAP_TOKEN=generate-a-separate-one-time-admin-setup-secret
+TURNSTILE_SECRET_KEY=
+TURNSTILE_SITE_KEY=
