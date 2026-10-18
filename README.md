@@ -351,3 +351,9 @@ This is a new Cloudflare-focused implementation and is not yet a complete featur
 - Automatic import of existing PostgreSQL or Meilisearch data.
 
 Review these limitations against your requirements before replacing an existing deployment.
+
+## Sponsor me
+[![Sponsor here](https://img.shields.io/badge/sponsor-here-ff69b4?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://donate.protechvn.io.vn)
+
+## LICENSE
+Under MIT License on [LICENSE](LICENSE)
